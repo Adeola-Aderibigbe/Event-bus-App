@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChatApp2\ChatApp2.csproj" />
     <ProjectReference Include="..\Event-bus-App\Event-bus-App.csproj" />
   </ItemGroup>
 
