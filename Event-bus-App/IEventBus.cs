@@ -11,6 +11,7 @@ namespace Event_bus_App
         void Dispose();
         void Publish<T>(T @event) where T : Event;
         void Subscribe<T,EH>(EH eH) where T : Event
-            where EH : IEventHandler;
+            where EH : EventHandler<T>;
+        void SubscribeDynamic<T>(DelegateEventHandler<T> handler) where T : Event;
     }
 }

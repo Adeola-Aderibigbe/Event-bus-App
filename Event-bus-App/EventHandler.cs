@@ -1,15 +1,13 @@
-﻿using Event_bus_App;
-using System;
-
-delegate void DelegateEventHandler<T>(T @event) where T : Event;
-namespace Event_bus_App
+﻿namespace Event_bus_App
 {
-    public class EventHandler
+    public delegate void DelegateEventHandler<T>(T @event) where T : Event;
+
+    public  class EventHandler<T> : IEventHandler<T> where T : Event
     {
-        public virtual void Handler<T>(T @event)
+        public virtual void Handle(T @event)
         {
-            Console.WriteLine($"{typeof(T)} is been handled");
+            throw new NotImplementedException();
         }
     }
-}
+}   
 

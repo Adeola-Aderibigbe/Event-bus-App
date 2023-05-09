@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App1._0
+namespace Event_bus_App
 {
-    public class App1Event : Event
+    public class App2Event : Event
     {
-        public App1Event(string message) : base(message)
+        public App2Event(string message) : base(message)
         {
         }
     }

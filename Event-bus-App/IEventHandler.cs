@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Event_bus_App
 {
-    public interface IEventHandler
+    public interface IEventHandler<T> where T : Event 
     {
-        void Handle<T>(T @event) where T : Event;
+        void Handle(T @event);
     }
 }

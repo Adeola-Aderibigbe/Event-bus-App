@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace App2._0
 {
-    public class App2EventHandler : IEventHandler
+    public class App2EventHandler : Event_bus_App.EventHandler<App1Event>
     {
-        public void Handle<T>(T @event) where T : Event
+
+        public override void Handle(App1Event @event)
         {
             Console.WriteLine(@event.Message);
             Console.WriteLine(@event.TimeStamp.TimeOfDay);
         }
-
-        
     }
 }
