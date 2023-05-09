@@ -9,7 +9,7 @@ namespace ChatApp2
 {
     public class ChatEventHandler : IEventHandler
     {
-        public void Handle<T>(T @event) where T : Event
+        public virtual void Handle<T>(T @event) where T : Event
         {
            Console.WriteLine(@event.Message);
         }

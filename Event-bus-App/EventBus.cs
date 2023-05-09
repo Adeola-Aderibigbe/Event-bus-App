@@ -8,7 +8,8 @@ namespace Event_bus_App
 {
     public class EventBus : IEventBus
     {
-        List<IEventHandler> subscribers = new();
+        Dictionary<Type, IEventHandler> subscribers1 = new();
+        Dictionary<Type, DelegateEventHandler<Event>> subscribers2 = new();
         public void Dispose()
         {
             throw new NotImplementedException();
@@ -18,9 +19,10 @@ namespace Event_bus_App
         {
             if (@event == null) return;
 
-            foreach (var subscriber in subscribers)
+            var currentSubscribers = subscribers1.Where(s => s.Key == @event.GetType());
+            foreach (var subscriber in currentSubscribers)
             {
-                subscriber.Handle(@event);
+                subscriber.Value.Handle(@event);
             }
         }
 
@@ -28,7 +30,8 @@ namespace Event_bus_App
             where T : Event
             where EH : IEventHandler
         {
-           subscribers.Add(eH);
+
+           subscribers1.Add(typeof(T),eH);
         }
     }
 }

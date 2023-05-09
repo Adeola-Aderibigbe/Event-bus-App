@@ -11,7 +11,9 @@ namespace Event_bus_App
         public Event(string message)
         {
             Message = message;
+            TimeStamp = DateTime.Now;
         }
         public string Message { get; protected set; } 
+        public DateTime TimeStamp { get; protected set; }
     }
 }
