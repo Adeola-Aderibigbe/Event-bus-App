@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatApp1
+namespace App1._0
 {
-    public class ChatEvent1 : Event
+    public class App1Event : Event
     {
-        public ChatEvent1(string message) : base(message)
+        public App1Event(string message) : base(message)
         {
         }
     }

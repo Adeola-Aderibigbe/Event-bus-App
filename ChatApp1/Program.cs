@@ -1,15 +1,9 @@
-﻿
-using ChatApp1;
-using ChatApp2;
+﻿using App1._0;
+using App2._0;
 using Event_bus_App;
 
 IEventBus _eventBus = new EventBus();
-_eventBus.Subscribe<Event, ChatEventHandler>(new ChatEventHandler());
-ChatBot("Hello");
+_eventBus.Subscribe<Event, App2EventHandler>(new App2EventHandler());
+var sendMessages = new SendMessages(_eventBus);
+sendMessages.SendMessage("Hello from App1.0");
 
-void ChatBot(string message)
-{
-    var @event = new ChatEvent1(message);
-    _eventBus.Publish(@event);
-
-}
