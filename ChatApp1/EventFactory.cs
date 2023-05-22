@@ -1,4 +1,5 @@
 ﻿using App1._0;
+using Autofac;
 using Event_bus_App;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -10,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace ChatApp1
 {
-    public static class EventFactory
+    public class EventFactory
     {
-        public static void ReceiveConnection(IEventBus _eventBus)
+        public EventFactory(IEventBus EventBus)
         {
-            var messageReceived = string.Empty;
+            this.EventBus = EventBus;
+        }
+
+        public void ReceiveConnection()
+        {
+           
             var factory = new ConnectionFactory { HostName = "localhost" };
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
@@ -33,10 +39,9 @@ namespace ChatApp1
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine($" [x] Received {message}");
-                var messageReceived = message;
-                if (!string.IsNullOrEmpty(messageReceived))
+                if (!string.IsNullOrEmpty(message))
                 {
-                    var sendMessage = new SendMessages(_eventBus);
+                    var sendMessage = new SendMessages(EventBus);
                     sendMessage.SendMessage("Hello from App 1.0");
                 }
             };
@@ -51,5 +56,6 @@ namespace ChatApp1
           
             Console.ReadLine();
         }
+        public IEventBus EventBus { get; set; }
     }
 }

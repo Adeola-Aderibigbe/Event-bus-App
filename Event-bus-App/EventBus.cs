@@ -12,7 +12,8 @@ namespace Event_bus_App
         Dictionary<Type, List<Delegate>> subscribers2 = new();
         public void Dispose()
         {
-            throw new NotImplementedException();
+            subscribers1.Clear();
+            subscribers2.Clear();
         }
 
         public void Publish<T>(T @event) where T : Event
