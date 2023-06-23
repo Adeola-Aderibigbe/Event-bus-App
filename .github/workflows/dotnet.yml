@@ -7,8 +7,8 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  project_file: 'ChatApp1/ChatApp1.csproj'
-  output_path: 'bin\Release\net6.0\publish'
+   project_file: 'ChatApp1/ChatApp1.csproj'
+   output_path: 'bin\Release\net6.0\publish'
   
   
 jobs:
