@@ -4,12 +4,12 @@
 name: Build and Publish 
 
 on:
-  push:
-   branches: ["master"]
   pull_request:
     branches: [ "master" ]
 env:
-  project-file: "./ChatApp1/ChatApp1.csproj"
+  project_file: 'ChatApp1/ChatApp1.csproj'
+  output_path: 'bin\Release\net6.0\publish'
+  
   
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build ${{env.project-file}}--no-restore --configuration Release
+      run: dotnet build ${{env.project_file}} --no-restore -c Release
     - name: publish
-      run: dotnet publish ${{env.project-file}} -c Release --no-restore
+      run: dotnet publish ${{env.project-file}} -c Release --output ${{output_path}} --no-restore
