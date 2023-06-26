@@ -14,11 +14,13 @@ jobs:
         steps:
             - name: check out
               uses: actions/checkout@v3
+            - name : echo path
+              uses: echo ${{env.DOTNET_ROOT}}
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
                 name: ${{env.artifact_name}}
-                path:  '${{env.DOTNET_ROOT}}/serviceApp' 
+                path: '${{env.DOTNET_ROOT}}/serviceApp' 
                 if-no-files-found: error
 
     deploy:
