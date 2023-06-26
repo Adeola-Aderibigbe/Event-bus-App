@@ -34,7 +34,11 @@ jobs:
       run: dotnet build ${{env.background_project_file}} --no-restore -c Release
 
     - name: publish chat app 1
-      run: dotnet publish ${{env.chatApp_project_file}} -c Release --output ${{env.output_path}} --no-restore
+      run: dotnet publish ${{env.chatApp_project_file}} -c Release --output ${{env.output_path}} --no-restore  
+      
+    - name: echo path
+      run: echo ${{env.DOTNET_ROOT}}
       
     - name: publish background service
       run: dotnet publish ${{env.background_project_file}} -c Release --output '${{env.DOTNET_ROOT}}/serviceApp' --no-restore
+   
