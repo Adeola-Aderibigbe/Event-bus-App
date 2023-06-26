@@ -1,13 +1,8 @@
 ﻿using App1._0;
-using Autofac;
 using Event_bus_App;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ChatApp1
 {
