@@ -15,7 +15,7 @@ jobs:
             - name: check out
               uses: actions/checkout@v3
             - name: publish background service
-              run: dotnet publish ${{env.background_project_file}} -c Release --output '${{env.DOTNET_ROOT}}/serviceApp' 
+              run: dotnet publish BackgroundService/BackgroundService.csproj -c Release --output '${{env.DOTNET_ROOT}}/serviceApp' 
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
