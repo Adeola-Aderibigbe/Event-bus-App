@@ -19,6 +19,7 @@ jobs:
               with:
                 name: ${{env.artifact_name}}
                 path: ${{env.output_path}}
+                if-no-files-found: error
 
     deploy:
         needs: build
