@@ -4,13 +4,13 @@
 name: Build and Publish 
 
 on:
-  push: 
-    branches: ["master"]
   pull_request:
     branches: [ "master" ]
     
 env:
-   project_file: 'ChatApp1/ChatApp1.csproj'  
+   chatApp_project_file: 'ChatApp1/ChatApp1.csproj' 
+   background_project_file: 'BackgroundService/BackgroundService.csproj' 
+   output_path: 'bin/Release/net6.0/publish/'
   
 jobs:
   build:
@@ -23,9 +23,19 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+
+    - name: Build chat app 1
       run: dotnet build ${{env.project_file}} --no-restore -c Release
-    - name: publish
-      run: dotnet publish ${{env.project-file}} -c Release --output 'bin/Release/net6.0/publish/' --no-restore
+
+    - name: Build background service 
+      run: dotnet build ${{env.background_project_file}} --no-restore -c Release
+
+    - name: publish chat app 1
+      run: dotnet publish ${{env.project-file}} -c Release --output ${{env.output_path}} --no-restore
+
+    - name: publish background service
+      run: dotnet publish ${{env.background_project-file}} -c Release --output '${{env.output_path}}/serviceApp' --no-restore
+
