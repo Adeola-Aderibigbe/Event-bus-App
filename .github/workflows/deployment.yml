@@ -5,24 +5,28 @@ on:
         branches: ["master"]
 env:
     staging-url : 'https://paprikabackground-staging.azurewebsites.net/'
-    output_path: ' D:\a\Event-bus-App\Event-bus-App\bin\Release\net6.0\publish\serviceApp\'
+    output_path: 'bin/Release/net6.0/publish/'
     azure_web_name: PaprikaBackground
     artifact_name: chatapp_background
 jobs:
     build:
         runs-on: windows-latest
         steps:
-            - name: Check if file exist
-              uses: andstor/file-existence-action@v2
-              with: 
-                 files: D:\a\Event-bus-App\Event-bus-App\BackgroundService\bin\Release\net6.0\BackgroundService.dll
             - name: check out
               uses: actions/checkout@v3
+            - name: Setup .NET Environment
+              uses: actions/setup-dotnet@v3
+              with:
+                 dotnet-version: 6.0.x  
+            - name: publish chat app 1
+              run: dotnet publish ${{env.chatApp_project_file}} -c Release --output ${{env.output_path}} --no-restore  
+            - name: publish background service
+              run: dotnet publish ${{env.background_project_file}} -c Release --output '${{env.output_path}}serviceApp' --no-restore
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
                 name: ${{env.artifact_name}}
-                path: ${{env.output_path}}
+                path: '${{env.output_path}}/serviceApp'
                 if-no-files-found: error
 
     deploy:
