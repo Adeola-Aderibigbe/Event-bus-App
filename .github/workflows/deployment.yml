@@ -14,8 +14,6 @@ jobs:
         steps:
             - name: check out
               uses: actions/checkout@v3
-            - name: publish background service
-              run: dotnet publish BackgroundService/BackgroundService.csproj -c Release --output '${{env.DOTNET_ROOT}}/serviceApp' 
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
@@ -31,8 +29,6 @@ jobs:
             url: ${{env.staging-url}}
         
         steps:
-            - name: check out
-              uses: actions/checkout@v3
             - name: download artifact
               uses: actions/download-artifact@v2
               with:
