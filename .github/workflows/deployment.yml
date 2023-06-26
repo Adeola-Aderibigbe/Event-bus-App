@@ -50,4 +50,4 @@ jobs:
               with:
                 app-name: ${{env.azure_web_name}}
                 publish-profile: ${{ secrets.AzureAppService_PublishProfile}}
-                package: './serviceApp'
+                package: '.'
