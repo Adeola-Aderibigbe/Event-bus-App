@@ -20,7 +20,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                 name: ${{env.artifact_name}}
-                path: ${{env.output_path}}
+                path:  '${{env.DOTNET_ROOT}}/serviceApp' 
                 if-no-files-found: error
 
     deploy:
