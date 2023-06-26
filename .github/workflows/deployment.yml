@@ -14,7 +14,7 @@ jobs:
         steps:
             - name: check out
               uses: actions/checkout@v3
-            - name : echo path
+            - name: echo path
               run: echo ${{env.DOTNET_ROOT}}
             - name: Upload artifact
               uses: actions/upload-artifact@v2
