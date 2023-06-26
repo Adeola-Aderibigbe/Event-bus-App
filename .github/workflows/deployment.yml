@@ -12,10 +12,10 @@ jobs:
     build:
         runs-on: windows-latest
         steps:
-            - name: check out
-              uses: actions/checkout@v3
             - name: echo path
               run: echo ${{env.DOTNET_ROOT}}
+            - name: check out
+              uses: actions/checkout@v3
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
