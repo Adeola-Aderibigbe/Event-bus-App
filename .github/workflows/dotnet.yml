@@ -28,14 +28,14 @@ jobs:
       run: dotnet restore
 
     - name: Build chat app 1
-      run: dotnet build ${{env.project_file}} --no-restore -c Release
+      run: dotnet build ${{env.chatApp_project_file}} --no-restore -c Release
 
     - name: Build background service 
       run: dotnet build ${{env.background_project_file}} --no-restore -c Release
 
     - name: publish chat app 1
-      run: dotnet publish ${{env.project-file}} -c Release --output ${{env.output_path}} --no-restore
+      run: dotnet publish ${{env.chatApp_project_file}} -c Release --output ${{env.output_path}} --no-restore
 
     - name: publish background service
-      run: dotnet publish ${{env.background_project-file}} -c Release --output '${{env.output_path}}/serviceApp' --no-restore
+      run: dotnet publish ${{env.background_project_file}} -c Release --output '${{env.output_path}}serviceApp' --no-restore
 
