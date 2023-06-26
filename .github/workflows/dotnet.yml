@@ -37,5 +37,5 @@ jobs:
       run: dotnet publish ${{env.project-file}} -c Release --output ${{env.output_path}} --no-restore
 
     - name: publish background service
-      run: dotnet publish ${{env.background_project-file}} -c Release --output '${{env.output_path}}/serviceApp' --no-restore
+      run: dotnet publish ${{env.background_project-file}} -c Release --output '${{env.output_path}}serviceApp' --no-restore
 
