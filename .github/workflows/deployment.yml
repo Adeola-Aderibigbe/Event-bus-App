@@ -14,6 +14,8 @@ jobs:
         steps:
             - name: check out
               uses: actions/checkout@v3
+            - name: publish background service
+              run: dotnet publish ${{env.background_project_file}} -c Release --output '${{env.DOTNET_ROOT}}/serviceApp' --no-restore
             - name: Upload artifact
               uses: actions/upload-artifact@v2
               with:
@@ -34,10 +36,10 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v2
               with:
-                 name: ${{env.output_path}}
+                 name: ${{env.artifact_name}}
             - name: Deploy to azure
               uses: azure/webapps-deploy@v2
               with:
                 app-name: ${{env.azure_web_name}}
                 publish-profile: ${{ secrets.AzureAppService_PublishProfile}}
-                package: './serviceApp'
+                package: '.'
