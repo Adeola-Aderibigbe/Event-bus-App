@@ -1,4 +1,4 @@
-﻿using EmailService;
+﻿using BackgroundService;
 using Hangfire;
 
 GlobalConfiguration.Configuration

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1.0", "Apps\App1.0\App1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App2.0", "Apps\App2.0\App2.0.csproj", "{1456C39A-B8B4-434D-BFF9-4FA1F7DEC259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{FF0EDAD1-2585-45BF-B1B8-14228DC4F40D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackgroundService", "BackgroundService\BackgroundService.csproj", "{C4F5D7E1-B115-491D-919F-28D89DD92160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{1456C39A-B8B4-434D-BFF9-4FA1F7DEC259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1456C39A-B8B4-434D-BFF9-4FA1F7DEC259}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1456C39A-B8B4-434D-BFF9-4FA1F7DEC259}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF0EDAD1-2585-45BF-B1B8-14228DC4F40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF0EDAD1-2585-45BF-B1B8-14228DC4F40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF0EDAD1-2585-45BF-B1B8-14228DC4F40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF0EDAD1-2585-45BF-B1B8-14228DC4F40D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F5D7E1-B115-491D-919F-28D89DD92160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F5D7E1-B115-491D-919F-28D89DD92160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F5D7E1-B115-491D-919F-28D89DD92160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F5D7E1-B115-491D-919F-28D89DD92160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
