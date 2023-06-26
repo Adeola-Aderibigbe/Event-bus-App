@@ -12,8 +12,10 @@ jobs:
     build:
         runs-on: windows-latest
         steps:
-            - name: echo path
-              run: echo ${{env.output_path}}
+            - name: Check if file exist
+              uses: andstor/file-existence-action@v2
+              with: 
+                 files: BackgroundService/bin/Release/net6.0/publish/serviceApp/BackgroundService.dll
             - name: check out
               uses: actions/checkout@v3
             - name: Upload artifact
