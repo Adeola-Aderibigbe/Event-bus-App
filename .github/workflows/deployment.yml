@@ -15,7 +15,7 @@ jobs:
             - name: Check if file exist
               uses: andstor/file-existence-action@v2
               with: 
-                 files: D:\a\Event-bus-App\Event-bus-App\bin\Release\net6.0\publish\serviceApp\BackgroundService.dll
+                 files: D:\a\Event-bus-App\Event-bus-App\BackgroundService\bin\Release\net6.0\BackgroundService.dll
             - name: check out
               uses: actions/checkout@v3
             - name: Upload artifact
