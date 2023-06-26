@@ -44,7 +44,7 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v2
               with:
-                 name: ${{env.output_path}}
+                 name: ${{env.azure_web_name}}
             - name: Deploy to azure
               uses: azure/webapps-deploy@v2
               with:
